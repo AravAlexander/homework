@@ -12,6 +12,7 @@ public class Player
 {
     private int purse;
     private String name;
+    private boolean inPenaltyBox = false;
     
     public void setPurse(int set)
     {
@@ -38,4 +39,18 @@ public class Player
         return this.name;
     }
     
+    public void moveToPenaltyBox()
+    {
+        if(!inPenaltyBox) this.inPenaltyBox = true;        
+    }
+    
+    public void leavePenaltyBox()
+    {
+        if(inPenaltyBox) this.inPenaltyBox = false;        
+    }
+    
+    public boolean checkIfInPenaltyBox()
+    {
+        return this.inPenaltyBox;
+    }
 }
