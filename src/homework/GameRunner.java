@@ -14,7 +14,7 @@ public class GameRunner {
 		aGame.add("Pat");
 		aGame.add("Sue");
 		
-		Random rand = new Random();
+/*		Random rand = new Random();
 	
 		do {
 			
@@ -29,6 +29,6 @@ public class GameRunner {
 			
 			
 		} while (notAWinner);
-		
+*/		
 	}
 }
