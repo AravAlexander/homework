@@ -5,17 +5,19 @@ import java.util.Random;
 
 public class GameRunner {
 
-	private static boolean running; //game running bool
+	private static boolean running=false; //game running bool
 
 	public static void main(String[] args) 
         {
 		Game aGame = new Game();
 		
-		aGame.add("Chet");
-		aGame.add("Pat");
-		aGame.add("Sue");
+		aGame.add("James");
+		aGame.add("Noel");
+		aGame.add("Sam");
 		
                 Random rand = new Random();
+                
+                if(!running)System.out.println("the game is off, fuckface");
                 
                 while (running)
                 {
