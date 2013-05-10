@@ -25,19 +25,14 @@ public class Game {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
 			sportsQuestions.addLast(("Sports Question " + i));
-			rockQuestions.addLast(createRockQuestion(i));
+			rockQuestions.addLast(("Rock Question" + i));
     	}
     }
-        //This is a function to do the same thing the constructor is doing
-        //needs to go
-	public String createRockQuestion(int index){
-		return "Rock Question " + index;
-	}
 	
         //This is apparently checking if there are enough players to play the game
         //probably not needed
 	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
+		return (players.size() >= 2);
 	}
         
         //this is adding a player to the game
