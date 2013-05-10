@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package homework;
 
 import junit.framework.TestCase;
@@ -32,11 +28,11 @@ public class GameTest extends TestCase {
      */
     public void testAdd() {
         System.out.println("add");
-        String playerName = "";
+        String playerName = "Player";
         Game instance = new Game();
-        instance.add(playerName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expResult = true;
+        boolean result = instance.add(playerName);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -48,8 +44,6 @@ public class GameTest extends TestCase {
         int expResult = 0;
         int result = instance.howManyPlayers();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -57,11 +51,12 @@ public class GameTest extends TestCase {
      */
     public void testRoll() {
         System.out.println("roll");
-        int roll = 0;
+        int roll = 1;
         Game instance = new Game();
-        instance.roll(roll);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.add("Player");
+        boolean expResult = true;
+        boolean result = instance.roll(roll);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -70,11 +65,10 @@ public class GameTest extends TestCase {
     public void testWasCorrectlyAnswered() {
         System.out.println("wasCorrectlyAnswered");
         Game instance = new Game();
-        boolean expResult = false;
+        instance.add("Player");
+        boolean expResult = true;
         boolean result = instance.wasCorrectlyAnswered();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,10 +77,9 @@ public class GameTest extends TestCase {
     public void testWrongAnswer() {
         System.out.println("wrongAnswer");
         Game instance = new Game();
-        boolean expResult = false;
+        instance.add("Player");
+        boolean expResult = true;
         boolean result = instance.wrongAnswer();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

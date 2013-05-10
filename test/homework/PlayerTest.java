@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package homework;
 
 import junit.framework.TestCase;
@@ -22,12 +18,10 @@ public class PlayerTest extends TestCase {
     public void testSetPurse() {
         System.out.println("setPurse");
         int set = 0;
-        Player instance = null;
-        boolean expResult = false;
+        Player instance = new Player("Player");
+        boolean expResult = true;
         boolean result = instance.setPurse(set);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -35,12 +29,10 @@ public class PlayerTest extends TestCase {
      */
     public void testIncrementPurse() {
         System.out.println("incrementPurse");
-        Player instance = null;
-        boolean expResult = false;
+        Player instance = new Player("Player");
+        boolean expResult = true;
         boolean result = instance.incrementPurse();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -48,12 +40,10 @@ public class PlayerTest extends TestCase {
      */
     public void testGetPurse() {
         System.out.println("getPurse");
-        Player instance = null;
+        Player instance = new Player("Player");
         int expResult = 0;
         int result = instance.getPurse();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,13 +51,11 @@ public class PlayerTest extends TestCase {
      */
     public void testSetName() {
         System.out.println("setName");
-        String input = "";
-        Player instance = null;
-        boolean expResult = false;
+        String input = "New Name";
+        Player instance = new Player("Player");
+        boolean expResult = true;
         boolean result = instance.setName(input);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,12 +63,10 @@ public class PlayerTest extends TestCase {
      */
     public void testGetName() {
         System.out.println("getName");
-        Player instance = null;
-        String expResult = "";
+        Player instance = new Player("Player");
+        String expResult = "Player";
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,12 +74,10 @@ public class PlayerTest extends TestCase {
      */
     public void testMoveToPenaltyBox() {
         System.out.println("moveToPenaltyBox");
-        Player instance = null;
-        boolean expResult = false;
+        Player instance = new Player("Player");
+        boolean expResult = true;
         boolean result = instance.moveToPenaltyBox();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -101,12 +85,10 @@ public class PlayerTest extends TestCase {
      */
     public void testLeavePenaltyBox() {
         System.out.println("leavePenaltyBox");
-        Player instance = null;
-        boolean expResult = false;
+        Player instance = new Player("Player");
+        boolean expResult = true;
         boolean result = instance.leavePenaltyBox();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -114,11 +96,9 @@ public class PlayerTest extends TestCase {
      */
     public void testIsInPenaltyBox() {
         System.out.println("isInPenaltyBox");
-        Player instance = null;
+        Player instance = new Player("Player");
         boolean expResult = false;
         boolean result = instance.isInPenaltyBox();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
