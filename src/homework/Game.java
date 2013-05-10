@@ -17,23 +17,30 @@ public class Game {
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
     
-    public  Game(){
-    	for (int i = 0; i < 50; i++) {
+    public  Game()
+    {
+    	//This looks like it sets up the questions
+        for (int i = 0; i < 50; i++) 
+        {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
 			sportsQuestions.addLast(("Sports Question " + i));
 			rockQuestions.addLast(createRockQuestion(i));
     	}
     }
-
+        //This is a function to do the same thing the constructor is doing
+        //needs to go
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}
 	
+        //This is apparently checking if there are enough players to play the game
+        //probably not needed
 	public boolean isPlayable() {
 		return (howManyPlayers() >= 2);
 	}
-
+        
+        //this is adding a player to the game
 	public void add(String playerName) 
         {
             Player temp = new Player(playerName);
@@ -45,12 +52,15 @@ public class Game {
 	    System.out.println(playerName + " was added, and is player number "+players.size());
 	}
 	
+        //This is checking how many players are in the game also
 	public int howManyPlayers() 
         {
 		return players.size();
 	}
 
-	public void roll(int roll) 
+	//This is doing almost all of the game logic while taking
+        //a random number as the integer for the dice roll
+        public void roll(int roll) 
         {
 		System.out.println(players.get(currentPlayer) + " is the current player");
 		System.out.println("They have rolled a " + roll);
@@ -91,7 +101,9 @@ public class Game {
 		}
 		
 	}
-
+        
+        
+        //this appears to be printing the first question in each category
 	private void askQuestion() 
         {
             String category = currentCategory();
@@ -113,7 +125,8 @@ public class Game {
             }
         }
 	
-	
+	//this is printing whatever category the player should be asked
+        //based on their current position in the array
 	private String currentCategory() 
         {    
             switch(places[currentPlayer])
@@ -134,7 +147,9 @@ public class Game {
                     return "Rock";
             }
 	}
-
+        
+        //this is apparently letting someone out of the penalty box
+        //if they are in it and checking if they then win the game or something
 	public boolean wasCorrectlyAnswered() 
         {
             if (inPenaltyBox[currentPlayer])
@@ -179,6 +194,7 @@ public class Game {
             }
 	}
 	
+        //this is putting them in the penalty box if they get something wrong
 	public boolean wrongAnswer()
         {
 		System.out.println("Question was incorrectly answered");
@@ -190,7 +206,8 @@ public class Game {
 		return true;
 	}
 
-
+        //this is checking if the player has 6 coins
+        //needs changed since we moved purse to player class
 	private boolean didPlayerWin() 
         {
 		return !(purses[currentPlayer] == 6);
