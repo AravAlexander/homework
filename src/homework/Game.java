@@ -62,7 +62,6 @@ public class Game {
         //a random number as the integer for the dice roll
         public void roll(int roll) 
         {
-            //
             Player playerUp = (Player) players.get(currentPlayer);
 
             System.out.println(playerUp.getName() + " is the current player");		
@@ -74,19 +73,19 @@ public class Game {
                     {
                             isGettingOutOfPenaltyBox = true;
 
-                            System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
+                            System.out.println(playerUp.getName()+ " is getting out of the penalty box");
                             places[currentPlayer] = places[currentPlayer] + roll;
+
+                            //seriously? mod math please... come back to fix
                             if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-                            System.out.println(players.get(currentPlayer) 
-                                            + "'s new location is " 
-                                            + places[currentPlayer]);
+                            System.out.println(playerUp.getName() + "'s new location is " + places[currentPlayer]);
                             System.out.println("The category is " + currentCategory());
                             askQuestion();
                     } 
                     else 
                     {
-                        System.out.println(players.get(currentPlayer) + " is not getting out of the penalty box");
+                        System.out.println(playerUp.getName() + " is not getting out of the penalty box");
                         isGettingOutOfPenaltyBox = false;
                     }
 
@@ -94,16 +93,15 @@ public class Game {
                 else 
                 {
                     places[currentPlayer] = places[currentPlayer] + roll;
+                    
                     if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-                    System.out.println(players.get(currentPlayer) 
-                                    + "'s new location is " 
-                                    + places[currentPlayer]);
+                    System.out.println(playerUp.getName() + "'s new location is " + places[currentPlayer]);
                     System.out.println("The category is " + currentCategory());
                     askQuestion();
 		}
 		
-	}
+	}//end of "roll" function
         
         
         //this appears to be printing the first question in each category
@@ -155,19 +153,19 @@ public class Game {
         //if they are in it and checking if they then win the game or something
 	public boolean wasCorrectlyAnswered() 
         {
-            if (inPenaltyBox[currentPlayer])
+            Player playerUp = (Player) players.get(currentPlayer);
+            
+            if (playerUp.isInPenaltyBox())
             {
                 if (isGettingOutOfPenaltyBox) 
                 {
                         System.out.println("Answer was correct!!!!");
-                        purses[currentPlayer]++;
-                        System.out.println(players.get(currentPlayer) 
-                                        + " now has "
-                                        + purses[currentPlayer]
-                                        + " Gold Coins.");
+                        playerUp.incrementPurse();
+                        System.out.println(playerUp.getName() + " now has " + playerUp.getPurse() + " Gold Coins.");
 
                         boolean winner = didPlayerWin();
                         currentPlayer++;
+
                         if (currentPlayer == players.size()) currentPlayer = 0;
 
                         return winner;
@@ -181,12 +179,9 @@ public class Game {
             } 
             else 
             {
-                System.out.println("Answer was corrent!!!!");
-                purses[currentPlayer]++;
-                System.out.println(players.get(currentPlayer) 
-                                + " now has "
-                                + purses[currentPlayer]
-                                + " Gold Coins.");
+                System.out.println("Answer was correct!!!!");
+                playerUp.incrementPurse();
+                System.out.println(playerUp.getName() + " now has " + playerUp.getPurse() + " Gold Coins.");
 
                 boolean winner = didPlayerWin();
                 currentPlayer++;

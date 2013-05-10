@@ -12,7 +12,7 @@ public class Player
 {
     private int purse;
     private String name;
-    private boolean inPenaltyBox = false;
+    private boolean inPenaltyBox = false;//true for is in box
     
     //constructors NOEL!!! lol
     public Player(String Name)
@@ -57,7 +57,7 @@ public class Player
     }
     
     public boolean isInPenaltyBox()
-    {
+    {//true = is in box
         return this.inPenaltyBox;
     }
 }
