@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GameRunner {
 
-	private static boolean running=false; //game running bool
+	private static boolean running=true; //game running bool
 
 	public static void main(String[] args) 
         {
