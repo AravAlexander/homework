@@ -54,10 +54,12 @@ public class Game {
 
 	//This is doing almost all of the game logic while taking
         //a random number as the integer for the dice roll
-        public boolean roll(int roll) 
+        public int doPlayerTurn() 
         {
             Player playerUp = (Player) players.get(currentPlayer);
-
+            
+            int roll = playerUp.rollDice(6);
+            
             System.out.println(playerUp.getName() + " is the current player");		
             System.out.println(playerUp.getName()+" rolled a " + roll);
 		
@@ -94,8 +96,11 @@ public class Game {
                     System.out.println("The category is " + currentCategory());
                     askQuestion();
 		}
-		return true;
-	}//end of "roll" function
+                
+                //roll a 10 sided dice
+                roll = playerUp.rollDice(10);
+		return roll;
+	}
         
         
         //this appears to be printing the first question in each category
@@ -146,7 +151,7 @@ public class Game {
         
         //this is apparently letting someone out of the penalty box
         //if they are in it and checking if they then win the game or something
-	public boolean wasCorrectlyAnswered() 
+	public void correctAnswer() 
         {
             Player playerUp = (Player) players.get(currentPlayer);
             
@@ -158,18 +163,15 @@ public class Game {
                         playerUp.incrementPurse();
                         System.out.println(playerUp.getName() + " now has " + playerUp.getPurse() + " Gold Coins.");
 
-                        boolean winner = didPlayerWin();
                         currentPlayer++;
 
                         if (currentPlayer == players.size()) currentPlayer = 0;
 
-                        return winner;
                 } 
                 else 
                 {
                         currentPlayer++;
                         if (currentPlayer == players.size()) currentPlayer = 0;
-                        return true;
                 }
             } 
             else 
@@ -178,17 +180,16 @@ public class Game {
                 playerUp.incrementPurse();
                 System.out.println(playerUp.getName() + " now has " + playerUp.getPurse() + " Gold Coins.");
 
-                boolean winner = didPlayerWin();
                 currentPlayer++;
-                if (currentPlayer == players.size()) currentPlayer = 0;
+                if (currentPlayer == players.size())currentPlayer = 0;
                 {
-                    return winner;
+                    // return winner;
                 }
             }
 	}
 	
         //this is putting them in the penalty box if they get something wrong
-	public boolean wrongAnswer()
+	public void wrongAnswer()
         {
             Player playerUp = (Player) players.get(currentPlayer);
 		System.out.println("Question was incorrectly answered");
@@ -197,14 +198,14 @@ public class Game {
 		
 		currentPlayer++;
 		if (currentPlayer == players.size()) currentPlayer = 0;
-		return true;
 	}
 
         //this is checking if the player has 6 coins
         //needs changed since we moved purse to player class
-	private boolean didPlayerWin() 
+	public boolean didPlayerWin() 
         {
             Player playerUp = (Player) players.get(currentPlayer);            
-		return !(playerUp.getPurse() == 6);
+            
+            return !(playerUp.getPurse() == 6);
 	}
 }
