@@ -14,6 +14,13 @@ public class Player
     private String name;
     private boolean inPenaltyBox = false;
     
+    //constructors NOEL!!! lol
+    public Player(String Name)
+    {
+        name = Name;
+        purse = 0;
+    }
+    
     public void setPurse(int set)
     {
         this.purse = set;

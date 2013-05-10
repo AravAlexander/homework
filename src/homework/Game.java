@@ -34,20 +34,15 @@ public class Game {
 		return (howManyPlayers() >= 2);
 	}
 
-	public boolean add(String playerName) 
+	public void add(String playerName) 
         {
-            Player temp = new Player();
-            
-            temp.setName(playerName);
-            temp.setPurse(0);
+            Player temp = new Player(playerName);
             
             players.add(temp);
             
 	    places[howManyPlayers()] = 0;
 	    
 	    System.out.println(playerName + " was added, and is player number "+players.size());
-
-		return true;
 	}
 	
 	public int howManyPlayers() 
