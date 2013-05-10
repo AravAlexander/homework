@@ -4,6 +4,8 @@
  */
 package homework;
 
+import java.util.Random;
+
 /**
  *
  * @author Noel
@@ -12,13 +14,15 @@ public class Player
 {
     private int purse;
     private String name;
-    private boolean inPenaltyBox = false;//true for is in box
+    private boolean inPenaltyBox;//true for is in box
+    Random rand = new Random();
     
     //constructors NOEL!!! lol
     public Player(String Name)
     {
         name = Name;
         purse = 0;
+        inPenaltyBox = false;
     }
     
     public void setPurse(int set)
@@ -59,5 +63,10 @@ public class Player
     public boolean isInPenaltyBox()
     {//true = is in box
         return this.inPenaltyBox;
+    }
+    
+    public int rollDice(int dieSize)
+    {
+        return rand.nextInt(dieSize-1) + 1;
     }
 }
