@@ -56,7 +56,7 @@ public class Player
         if(inPenaltyBox) this.inPenaltyBox = false;        
     }
     
-    public boolean checkIfInPenaltyBox()
+    public boolean isInPenaltyBox()
     {
         return this.inPenaltyBox;
     }

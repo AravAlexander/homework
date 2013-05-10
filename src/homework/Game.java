@@ -49,7 +49,7 @@ public class Game {
             
 	    places[howManyPlayers()] = 0;
 	    
-	    System.out.println(playerName + " was added, and is player number "+players.size());
+            System.out.println(temp.getName()+" was added to the game as player " + players.size());
 	}
 	
         //This is checking how many players are in the game also
@@ -62,10 +62,13 @@ public class Game {
         //a random number as the integer for the dice roll
         public void roll(int roll) 
         {
-		System.out.println(players.get(currentPlayer) + " is the current player");
-		System.out.println("They have rolled a " + roll);
+            //
+            Player playerUp = (Player) players.get(currentPlayer);
+
+            System.out.println(playerUp.getName() + " is the current player");		
+            System.out.println(playerUp.getName()+" rolled a " + roll);
 		
-		if (inPenaltyBox[currentPlayer]) 
+		if (playerUp.isInPenaltyBox()) 
                 {
                     if (roll % 2 != 0) 
                     {
