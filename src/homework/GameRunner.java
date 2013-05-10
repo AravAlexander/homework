@@ -21,22 +21,27 @@ public class GameRunner {
                 
                 while (running)
                 {
-                    aGame.roll(rand.nextInt(5) + 1);
+                    //do players turn and return 10 sided die roll
+                    int roll10 = aGame.doPlayerTurn();
+
                     
                     //They roll a 10 sided dice here and if they get a 7 it runs
                     // them into the penalty box
-                    if (rand.nextInt(9) == 7) 
-                    {
-                            //notAWinner = aGame.wrongAnswer();
-                    } 
-                    else 
-                    {
+                  if (roll10 == 7) 
+                   {
+                            aGame.wrongAnswer();
+                   } 
+                   else 
+                   {
                         //if they got a 7 on the 10 sided die and they have the
                         //correct answer they seem to win
                             //end the game
-                            //notAWinner = aGame.wasCorrectlyAnswered();
+                        aGame.correctAnswer();
+                        if (aGame.didPlayerWin())
+                        {    
                             running = false;
-                    }
+                        }
+                  }
 
                 }
 	}
