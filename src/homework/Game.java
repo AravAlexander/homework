@@ -6,8 +6,6 @@ import java.util.LinkedList;
 public class Game {
     ArrayList players = new ArrayList();
     int[] places = new int[6];
-    int[] purses  = new int[6];
-    boolean[] inPenaltyBox  = new boolean[6];
     
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -190,9 +188,10 @@ public class Game {
         //this is putting them in the penalty box if they get something wrong
 	public boolean wrongAnswer()
         {
+            Player playerUp = (Player) players.get(currentPlayer);
 		System.out.println("Question was incorrectly answered");
-		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
-		inPenaltyBox[currentPlayer] = true;
+		System.out.println(playerUp.getName()+ " was sent to the penalty box");
+                playerUp.moveToPenaltyBox();
 		
 		currentPlayer++;
 		if (currentPlayer == players.size()) currentPlayer = 0;
@@ -203,6 +202,7 @@ public class Game {
         //needs changed since we moved purse to player class
 	private boolean didPlayerWin() 
         {
-		return !(purses[currentPlayer] == 6);
+            Player playerUp = (Player) players.get(currentPlayer);            
+		return !(playerUp.getPurse() == 6);
 	}
 }
