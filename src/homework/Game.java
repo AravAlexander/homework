@@ -34,7 +34,7 @@ public class Game {
 	}
         
         //this is adding a player to the game
-	public void add(String playerName) 
+	public boolean add(String playerName) 
         {
             Player temp = new Player(playerName);
             
@@ -43,6 +43,7 @@ public class Game {
 	    places[howManyPlayers()] = 0;
 	    
             System.out.println(temp.getName()+" was added to the game as player " + players.size());
+            return true;
 	}
 	
         //This is checking how many players are in the game also
@@ -53,7 +54,7 @@ public class Game {
 
 	//This is doing almost all of the game logic while taking
         //a random number as the integer for the dice roll
-        public void roll(int roll) 
+        public boolean roll(int roll) 
         {
             Player playerUp = (Player) players.get(currentPlayer);
 
@@ -93,12 +94,12 @@ public class Game {
                     System.out.println("The category is " + currentCategory());
                     askQuestion();
 		}
-		
+		return true;
 	}//end of "roll" function
         
         
         //this appears to be printing the first question in each category
-	private void askQuestion() 
+	private boolean askQuestion() 
         {
             String category = currentCategory();
             
@@ -117,6 +118,7 @@ public class Game {
                     System.out.println(rockQuestions.removeFirst());
                     break;
             }
+            return true;
         }
 	
 	//this is printing whatever category the player should be asked

@@ -21,14 +21,16 @@ public class Player
         purse = 0;
     }
     
-    public void setPurse(int set)
+    public boolean setPurse(int set)
     {
         this.purse = set;
+        return true;
     }
     
-    public void incrementPurse()
+    public boolean incrementPurse()
     {
         this.purse++;
+        return true;
     }
     
     public int getPurse()
@@ -36,9 +38,10 @@ public class Player
         return this.purse;
     }
     
-    public void setName(String input)
+    public boolean setName(String input)
     {
         this.name = input;
+        return true;
     }
     
     public String getName()
@@ -46,14 +49,16 @@ public class Player
         return this.name;
     }
     
-    public void moveToPenaltyBox()
+    public boolean moveToPenaltyBox()
     {
-        if(!inPenaltyBox) this.inPenaltyBox = true;        
+        if(!inPenaltyBox) this.inPenaltyBox = true;
+        return true;
     }
     
-    public void leavePenaltyBox()
+    public boolean leavePenaltyBox()
     {
-        if(inPenaltyBox) this.inPenaltyBox = false;        
+        if(inPenaltyBox) this.inPenaltyBox = false;   
+        return true;
     }
     
     public boolean isInPenaltyBox()
